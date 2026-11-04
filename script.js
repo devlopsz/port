@@ -1,24 +1,23 @@
 const projects = [...document.querySelectorAll(".project")];
 
 for (const project of projects) {
-  const toggle = project.querySelector(".project-square");
-  const link = project.querySelector(".project-link");
+  const link = project.querySelector(".project-button");
+  const name = project.dataset.project;
 
-  toggle.addEventListener("click", () => {
-    const opening = !project.classList.contains("is-open");
+  link.addEventListener("click", (event) => {
+    if (project.classList.contains("is-open")) return;
+
+    event.preventDefault();
 
     for (const other of projects) {
       other.classList.remove("is-open");
-      other.querySelector(".project-square").setAttribute("aria-expanded", "false");
-      other.querySelector(".project-link").tabIndex = -1;
+      const otherLink = other.querySelector(".project-button");
+      otherLink.setAttribute("aria-expanded", "false");
+      otherLink.setAttribute("aria-label", `Expandir o projeto ${other.dataset.project}`);
     }
 
-    if (opening) {
-      project.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
-      link.tabIndex = 0;
-    }
+    project.classList.add("is-open");
+    link.setAttribute("aria-expanded", "true");
+    link.setAttribute("aria-label", `Abrir o projeto ${name}`);
   });
-
-  link.tabIndex = -1;
 }
