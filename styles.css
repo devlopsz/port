@@ -36,7 +36,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .wordmark {
   align-self: end;
   margin: 0 0 clamp(56px, 10vh, 112px);
-  font-size: clamp(4.25rem, 12vw, 8.4rem);
+  font-size: clamp(2.75rem, 7vw, 5rem);
   font-weight: 400;
   letter-spacing: -0.055em;
   line-height: 0.9;
