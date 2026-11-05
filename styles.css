@@ -72,7 +72,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   align-self: flex-start;
   margin-left: 60%;
   width: 40%;
-  height: clamp(22px, 3vw, 26px);
+  height: clamp(4px, 0.5vw, 5px);
   overflow: hidden;
   background: var(--foreground);
   color: var(--background);
@@ -90,7 +90,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: opacity 220ms ease, transform var(--transition);
 }
 
-.brand-role:hover { width: 95%; }
+.brand-role:hover { width: 95%; height: 30px; }
 
 .brand-role:hover span {
   opacity: 1;
@@ -252,4 +252,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
