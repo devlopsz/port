@@ -1,4 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("assets/AnthropicSerif-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("assets/AnthropicSerif-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
 
 :root {
   color-scheme: dark;
@@ -16,7 +30,8 @@ body {
   min-height: 100svh;
   background: var(--background);
   color: var(--foreground);
-  font-family: "DM Serif Display", Georgia, "Times New Roman", serif;
+  font-family: "Anthropic Serif", Georgia, "Times New Roman", serif;
+  font-weight: 300;
 }
 
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -33,14 +48,53 @@ button, a { -webkit-tap-highlight-color: transparent; }
   padding: 48px 24px 38px;
 }
 
-.wordmark {
+.brand {
   align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: clamp(160px, 43vw, 220px);
   margin: 0 0 clamp(56px, 10vh, 112px);
-  font-size: clamp(2.75rem, 7vw, 5rem);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.9;
   animation: arrive 900ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-role {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-left: 60%;
+  width: 40%;
+  height: clamp(22px, 3vw, 26px);
+  overflow: hidden;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: clamp(0.95rem, 4vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: width var(--transition);
+}
+
+.brand-role span {
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 220ms ease, transform var(--transition);
+}
+
+.brand-role:hover { width: 95%; }
+
+.brand-role:hover span {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .projects {
@@ -59,9 +113,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
     ". center ."
     "bottom-left . bottom-right";
   grid-template-columns: max-content 32px max-content;
-  grid-template-rows: clamp(58px, 8vw, 68px) 32px clamp(58px, 8vw, 68px);
-  column-gap: clamp(18px, 5vw, 40px);
-  row-gap: clamp(20px, 4vw, 36px);
+  grid-template-rows: clamp(44px, 5.5vw, 48px) 32px clamp(44px, 5.5vw, 48px);
+  column-gap: clamp(10px, 2vw, 16px);
+  row-gap: clamp(8px, 1.25vw, 12px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -87,6 +141,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-size: 2.25rem;
   line-height: 0.8;
   pointer-events: none;
+  font-weight: 500;
 }
 
 .project-button {
@@ -115,9 +170,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-button:focus-visible { outline: 1px solid var(--foreground); outline-offset: 5px; }
 
 .project.is-open .project-button {
-  width: clamp(172px, 46vw, 260px);
-  height: clamp(58px, 8vw, 68px);
-  padding: 0 clamp(10px, 2.5vw, 16px);
+  width: clamp(128px, 27vw, 190px);
+  height: 48px;
+  padding: 0 clamp(8px, 2vw, 12px);
 }
 
 .project.is-open .project-label {
@@ -133,21 +188,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .project-button {
-  font-size: clamp(1.45rem, 4.5vw, 2.65rem);
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
   line-height: 1;
 }
 
 .social-links {
   align-self: start;
   display: flex;
-  gap: 24px;
+  gap: 16px;
   margin-top: clamp(68px, 10vh, 112px);
   animation: arrive 900ms 120ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
 .social-links a {
   display: grid;
-  width: 72px;
+  width: 56px;
   aspect-ratio: 1;
   place-items: center;
   border: 1px solid rgba(247, 247, 247, 0.86);
@@ -164,8 +219,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .social-links a:focus-visible { outline: 1px solid var(--foreground); outline-offset: 5px; }
 
 .social-links img {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   filter: invert(1);
   transition: filter var(--transition), transform var(--transition);
@@ -181,18 +236,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 560px) {
   .page { padding: 36px 20px 28px; }
-  .wordmark { margin-bottom: 58px; }
+  .brand { margin-bottom: 58px; }
   .project-grid {
     grid-template-columns: max-content 28px max-content;
-    grid-template-rows: 58px 30px 58px;
-    column-gap: clamp(18px, 5vw, 28px);
-    row-gap: 22px;
+    grid-template-rows: 44px 28px 44px;
+    column-gap: clamp(10px, 3vw, 16px);
+    row-gap: 10px;
   }
   .project-center { font-size: 2rem; }
-  .project.is-open .project-button { height: 58px; }
-  .social-links { gap: 18px; margin-top: 62px; }
-  .social-links a { width: 60px; }
-  .social-links img { width: 34px; height: 34px; }
+  .project.is-open .project-button { height: 48px; }
+  .social-links { gap: 12px; margin-top: 62px; }
+  .social-links a { width: 48px; }
+  .social-links img { width: 28px; height: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
