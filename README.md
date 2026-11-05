@@ -1,11 +1,20 @@
-# devlopsz
+<p align="left">
+  <img src="assets/card.png" alt="carddev" width="500">
+</p>
 
-Página pessoal de Lopsz, feita em HTML, CSS e JavaScript sem dependências de build.
+Portfolio com estetica unicamente criada para armazenar projetos de devlopsz, projetos esses focados em experiencia de ui/ux, interfaces e web design. Obrigado ;D
 
-## Executar localmente
+## Tecnologias
 
-Abra `index.html` no navegador ou inicie um servidor estático na pasta do projeto.
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
 
-## Publicação
+## Autor
 
-O site é publicado pelo GitHub Pages a partir da raiz da branch `main`.
+Desenvolvido por **Lopsz**.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
